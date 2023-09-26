@@ -1,0 +1,97 @@
+.main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 4rem auto 0;
+    justify-content: center;
+    width: 46rem;
+}
+header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+header .left, header .right{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+.left p, .right p{
+    font-size: 0.875rem;
+    font-weight: bold;
+}
+.left p{
+    color: var(--blue-500);
+}
+.right p{
+    color: var(--purple-500);
+}
+.left span, .right span{
+    padding: 0.125rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 10px;
+    background-color: var(--gray-400);
+}
+
+/* INÍCIO - Ativar e desativar Sections */
+
+.empty{
+    display: none;
+}
+/* .tasks{
+    display: none;
+} */
+
+/* FIM - Ativar e desativar Sections */
+
+.emptyContent{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 1.5rem;
+    border-radius: 8px;
+    border-top: 1px solid #333333;
+}
+.emptyContent img{
+    width: 3.5rem;
+    margin: 4rem 0 1rem;
+}
+.emptyContent p{
+    color: var(--gray-300);
+    text-align: center;
+    line-height: 1.4;
+    font-weight: bold;
+}
+.emptyContent span{
+    font-weight: 400;
+}
+.tasksContent{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    width: 46rem;
+    height: 4.5rem;
+    padding: 1rem;
+    font-size: 0.875rem;
+    border-radius: 8px;
+    border: 1px solid var(--gray-400);
+    background-color: var(--gray-500);
+}
+/* .checkbox{
+    width: 100px;
+    height: 100px;
+    color: red;
+    background-color: red;
+}
+input[type="checkbox"]{
+    cursor: pointer;
+    border: none;
+    color: red;
+    background-color: red;
+} */
+.trash{
+    color: var(--gray-300);
+}
