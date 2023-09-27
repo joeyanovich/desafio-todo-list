@@ -1,10 +1,10 @@
-import styles from './Task.module.css'
-import clipboard from '../../public/clipboard.svg'
 import { Trash } from '@phosphor-icons/react'
+
+import styles from './Task.module.css'
 
 export function Task() {
     return(
-        <main className={styles.main}>
+        <main>
             <header>
                 <div className={styles.left}>
                     <p>Tarefas criadas</p>
@@ -15,16 +15,7 @@ export function Task() {
                     <span>0</span>
                 </div>
             </header>
-            <section className={styles.empty}>
-                <div className={styles.emptyContent}>
-                    <img src={ clipboard } alt="" />
-                    <p>
-                        Você ainda não tem tarefas cadastradas <br />
-                        <span>Crie tarefas e organize seus itens a fazer</span>
-                    </p>
-                </div>
-            </section>
-            <section className={styles.tasks}>
+            <div className={styles.tasks}>
                 <div className={styles.tasksContent}>
                     <input type="checkbox" className={styles.checkbox}/>
                     <p>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</p>
@@ -32,7 +23,17 @@ export function Task() {
                         <Trash size={18}/>
                     </div>
                 </div>
-            </section>
+            </div>
+            <div className={styles.tasks}>
+                <div className={styles.tasksContent}>
+                    <input type="checkbox" className={styles.checkbox}/>
+                    <p>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</p>
+                    <div className={styles.trash}>
+                        <Trash size={18}/>
+                    </div>
+                </div>
+            </div>
         </main>
+        
     )
 }
