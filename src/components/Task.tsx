@@ -2,7 +2,17 @@ import { Trash } from '@phosphor-icons/react'
 
 import styles from './Task.module.css'
 
-export function Task() {
+interface TaskProps{
+    content: string;
+    onDeleteTask: (task: string) => void;
+}
+
+export function Task({ content, onDeleteTask }: TaskProps) {
+
+    function handleDeleteTask() {
+        onDeleteTask(content)
+    }
+
     return(
         <main>
             <header>
@@ -19,18 +29,9 @@ export function Task() {
                 <div className={styles.tasksContent}>
                     <input type="checkbox" className={styles.checkbox}/>
                     <p>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</p>
-                    <div className={styles.trash}>
+                    <button onClick={handleDeleteTask} className={styles.trash}>
                         <Trash size={18}/>
-                    </div>
-                </div>
-            </div>
-            <div className={styles.tasks}>
-                <div className={styles.tasksContent}>
-                    <input type="checkbox" className={styles.checkbox}/>
-                    <p>Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.</p>
-                    <div className={styles.trash}>
-                        <Trash size={18}/>
-                    </div>
+                    </button>
                 </div>
             </div>
         </main>
