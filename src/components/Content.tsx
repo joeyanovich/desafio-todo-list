@@ -7,7 +7,7 @@ import { FormTask } from './FormTask'
 
 export function Content() {
 
-  const [tasks, setTasks] = useState([''])
+  const [tasks, setTasks] = useState<string[]>([])
 
   const handleTaskAdd = (newTask: string) => {
     setTasks([...tasks, newTask])
@@ -20,27 +20,31 @@ export function Content() {
     setTasks(tasksWithoutDeletedOne)
   }
 
+  let tasksCount = tasks.length;
+
   return (
     <main className={styles.main}>
       <FormTask onTaskAdd={handleTaskAdd}/>
       <header className={styles.header}>
         <div className={styles.left}>
           <p>Tarefas criadas</p>
-          <span>0</span>
+          <span>{tasksCount}</span>
         </div>
         <div className={styles.right}>
         <p>Concluídas</p>
           <span>0</span>
         </div>
       </header>
-      <section className={styles.emptyContent}>
-        <img src={ clipboard } alt="Ícone de uma prancheta" />
-        <p>
-          <span>Você ainda não tem tarefas cadastradas</span><br />
-          Crie tarefas e organize seus itens a fazer
-        </p>
-      </section>
-      <div className={styles.taskList}>
+      {tasks.length <= 0 ? (
+        <section className={styles.emptyContent}>
+          <img src={ clipboard } alt="Ícone de uma prancheta" />
+          <p>
+            <span>Você ainda não tem tarefas cadastradas</span><br />
+            Crie tarefas e organize seus itens a fazer
+          </p>
+        </section>
+      ) : (
+        <div className={styles.taskList}>
         {tasks.map(task => {
           return (
             <Task
@@ -51,6 +55,8 @@ export function Content() {
           )
         })}
       </div>
+      )
+      }
     </main>
   )
 }

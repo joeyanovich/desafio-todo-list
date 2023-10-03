@@ -8,7 +8,7 @@ function App() {
     <div>
       <Header />
       {/* <FormTask /> */}
-      <Content/>
+      <Content />
     </div>
   )
 }

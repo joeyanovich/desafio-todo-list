@@ -4,10 +4,11 @@ import { PlusCircle } from "@phosphor-icons/react";
 
 interface FormTaskProps {
   onTaskAdd: (newTask: string) => void;
+  // count: number; //aqui
 }
 
 export function FormTask({ onTaskAdd }: FormTaskProps) {
-
+  // const [tasksCount, setTasksCount] = useState(0)
 
   const [newTaskText, setNewTaskText] = useState('')
 
@@ -17,6 +18,12 @@ export function FormTask({ onTaskAdd }: FormTaskProps) {
     onTaskAdd(newTaskText)
     setNewTaskText('')
   }
+
+  // function handleTasksCount() {
+  //   setTasksCount((state) => {
+  //     return state + 1
+  //     })
+  //   }
 
   return (
       <form onSubmit={handleCreateNewTask} className={styles.form}>
