@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { FormTask } from './FormTask'
 
 export function Content() {
+  const [completedTaskCount, setCompletedTaskCount] = useState(0)
 
   const [tasks, setTasks] = useState<string[]>([])
 
@@ -14,10 +15,21 @@ export function Content() {
   }
 
   function deleteTask(taskToDelete: string) {
-    const tasksWithoutDeletedOne = tasks.filter(task => {
-      return task !== taskToDelete
-    })
-    setTasks(tasksWithoutDeletedOne)
+    const taskIndex = tasks.findIndex(task => task === taskToDelete)
+    if (taskIndex !== -1) {
+      const isTaskCompleted = taskIndex < completedTaskCount
+    
+      const tasksWithoutDeletedOne = tasks.filter((_, index) => index !== taskIndex)
+      setTasks(tasksWithoutDeletedOne)
+
+      if (isTaskCompleted) {
+        setCompletedTaskCount(prevCount => prevCount - 1)
+      }
+    }
+  }
+
+  function handleTaskComplete(isCompleted: boolean) {
+    setCompletedTaskCount(prevCount => isCompleted ? prevCount + 1 : prevCount -1)
   }
 
   let tasksCount = tasks.length;
@@ -32,7 +44,13 @@ export function Content() {
         </div>
         <div className={styles.right}>
         <p>Concluídas</p>
-          <span>0</span>
+        {
+          completedTaskCount > 0 ? (
+            <span>{completedTaskCount} de {tasks.length}</span>
+          ) : (
+            <span>0</span>
+          )
+        }
         </div>
       </header>
       {tasks.length <= 0 ? (
@@ -51,6 +69,7 @@ export function Content() {
               key={task}
               content={task}
               onDeleteTask={deleteTask}
+              onTaskComplete={handleTaskComplete}
             />
           )
         })}
