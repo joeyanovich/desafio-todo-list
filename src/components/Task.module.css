@@ -21,6 +21,7 @@
   gap: 0.75rem;
 }
 .task input[type="checkbox"] {
+  cursor: pointer;
   width: 1.090625rem;
   height: 1.090625rem;
   border-radius: 50%;
@@ -42,7 +43,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-color: var(--purple-700);
-    border: 1px solid var(--purple-700);
+  border: 1px solid var(--purple-700);
 }
 .task input[type="checkbox"]:checked:hover {
   background-color: var(--purple-500);

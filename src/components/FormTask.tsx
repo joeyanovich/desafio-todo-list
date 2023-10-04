@@ -4,13 +4,13 @@ import { PlusCircle } from "@phosphor-icons/react";
 
 interface FormTaskProps {
   onTaskAdd: (newTask: string) => void;
-  // count: number; //aqui
 }
 
 export function FormTask({ onTaskAdd }: FormTaskProps) {
-  // const [tasksCount, setTasksCount] = useState(0)
 
   const [newTaskText, setNewTaskText] = useState('')
+
+  const isNewTaskEmpty = newTaskText.length === 0
 
   function handleCreateNewTask(event: FormEvent) {
     event.preventDefault()
@@ -19,12 +19,6 @@ export function FormTask({ onTaskAdd }: FormTaskProps) {
     setNewTaskText('')
   }
 
-  // function handleTasksCount() {
-  //   setTasksCount((state) => {
-  //     return state + 1
-  //     })
-  //   }
-
   return (
       <form onSubmit={handleCreateNewTask} className={styles.form}>
         <input
@@ -32,8 +26,9 @@ export function FormTask({ onTaskAdd }: FormTaskProps) {
           placeholder='Adicione uma nova tarefa'
           value={newTaskText}
           onChange={(e) => setNewTaskText(e.target.value)}
+          required
         />
-        <button>
+        <button type='submit' disabled={isNewTaskEmpty}>
           Criar
           <PlusCircle className={styles.icon}/>
         </button>

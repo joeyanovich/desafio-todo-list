@@ -4,6 +4,7 @@ import { Trash } from "@phosphor-icons/react";
 import styles from './Task.module.css'
 import { useState } from "react";
 
+
 interface taskProps {
   content: string;
   onDeleteTask: (task: string) => void;
@@ -36,7 +37,7 @@ export function Task({ content, onDeleteTask, onTaskComplete }: taskProps) {
             <p>{content}</p>
           </div>
           <button
-            onClick={ handleDeleteTask }
+            onClick={handleDeleteTask}
             className={styles.icon}
             title={"Deletar Tarefa"}
           >
