@@ -1,5 +1,5 @@
 <h1 align="center">
-   <img src="./public/readme/todo-list.png">
+   <img src="./public/readme/todolist.png">
 </h1>
 
 <div align="center">
