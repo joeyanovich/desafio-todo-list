@@ -29,7 +29,7 @@
 
 Project made through the Ignite course on the [Rocketseat](https://app.rocketseat.com.br/cart/rocketseat-one-black-month-lote-02?referral=joeyanovich&utm_source=platform&utm_medium=organic&utm_campaign=venda&utm_term=mgm&utm_content=indication-lp_one) platform.
 
-Project carried out as the first challenge to reinforce important ReactJS concepts.
+Project carried out as the 1st challenge to reinforce important ReactJS concepts.
 It was necessary to develop a to-do-list style task control application, which contains the following functionalities:
 - `add a new task`
 - `mark and unmark a task as completed`
